@@ -2,7 +2,17 @@ import React from "react";
 import manager from "../Images/manager.svg";
 import employee from "../Images/employee.svg";
 import staff from "../Images/staff.svg";
+import { useNavigate } from "react-router-dom";
 function Worker() {
+  const navigate = useNavigate();
+
+  const onClickEmployee = () => {
+    navigate("/employeeList", { replace: true });
+  };
+
+  const onClickManager = () => {
+    navigate("/managerList", { replace: true });
+  };
   return (
     <div className="container-worker my-5 mx-5">
       <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -23,7 +33,11 @@ function Worker() {
               </p>
             </div>
             <div class="card-footer">
-              <button type="button" class="btn btn-success">
+              <button
+                type="button"
+                class="btn btn-success"
+                onClick={onClickManager}
+              >
                 Get Employee List
               </button>
             </div>
@@ -45,7 +59,11 @@ function Worker() {
               </p>
             </div>
             <div class="card-footer">
-              <button type="button" class="btn btn-success">
+              <button
+                type="button"
+                class="btn btn-success"
+                onClick={onClickEmployee}
+              >
                 Get Employee List
               </button>
             </div>

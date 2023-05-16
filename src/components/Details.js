@@ -3,6 +3,8 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import Worker from "./Worker";
+import Header from "./Header";
+import Logout from "./Logout";
 
 const Details = () => {
   const [logindata, setLoginData] = useState([]);
@@ -36,10 +38,10 @@ const Details = () => {
     }
   };
 
-  const userlogout = () => {
-    localStorage.removeItem("user_login");
-    history("/");
-  };
+  // const userlogout = () => {
+  //   localStorage.removeItem("user_login");
+  //   history("/");
+  // };
 
   useEffect(() => {
     Birthday();
@@ -51,16 +53,18 @@ const Details = () => {
         "errror"
       ) : (
         <>
+          <Header />
           {/* <h1>detials page</h1>
                         <h1>{logindata[0].name}</h1> */}
           <Worker />
-          <Button
+          <Logout />
+          {/* <Button
             onClick={userlogout}
             className="mt-4 btn btn-danger"
             style={{ marginLeft: "38rem" }}
           >
             LogOut
-          </Button>
+          </Button> */}
 
           {logindata[0].date === todayDate ? (
             <Modal show={show} onHide={handleClose}>
