@@ -1,0 +1,28 @@
+{
+  "employeeSdOne": [
+    {
+      "id": "007",
+      "name": "Mohan Gupta",
+      "position": "Software Engineer",
+      "salary": "₹800,000",
+      "email": "mohan.gupta@example.com", 
+      "hire": "2020-02-01",
+      "phone": " 9876543216",
+      "birthday": "1994-08-09",
+      "manager": " ₹50,000",
+      "hike": "Ajay Singh"
+    },
+    {
+      "id": "001",
+      "name": "Rajesh Sharma",
+      "position": "Software Engineer",
+      "salary": "₹800,000",
+      "email": "rajesh.sharma@example.com",
+      "hire": "2019-01-15",
+      "phone": "9876543210",
+      "birthday": "1990-05-10",
+      "manager": "Anil Singh",
+      "hike": "₹50,000"
+    }
+  ]
+}

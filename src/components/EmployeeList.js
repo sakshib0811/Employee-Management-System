@@ -22,7 +22,7 @@ function EmployeeList() {
         EMPLOYEE HIERARCHY
       </h3>
       <div className="employee-list">
-        <Card rank={"SDE1"} list={"Get Employee Details"} />
+        <Card rank={"SDE1"} list={"Get Employee Details"} path={"/SD1"} />
         <Card rank={"SDE2"} list={"Get Employee Details"} />
         <Card rank={"SDE3"} list={"Get Employee Details"} />
         <Card rank={"SDE4"} list={"Get Employee Details"} />

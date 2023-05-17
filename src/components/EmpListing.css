@@ -1,0 +1,11 @@
+.container-card{
+    overflow: scroll;
+}
+.card-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    background-clip: border-box;
+    width: max-content;
+}
