@@ -12,6 +12,7 @@ import EmpListing from "./components/EmpListing";
 import EmpCreate from "./components/EmpCreate";
 import EmpEdit from "./components/EmpEdit";
 import EmpDetails from "./components/EmpDetails";
+import EmpPromote from "./components/EmpPromote";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
     element: <ManagerList />,
   },
   {
-    path: "/SD1",
+    path: "/EmpListing",
     element: <EmpListing />,
   },
   {
@@ -43,11 +44,15 @@ const router = createBrowserRouter([
     element: <EmpCreate />,
   },
   {
-    path: "/employee/edit",
+    path: "/employee/edit/:empid",
     element: <EmpEdit />,
   },
   {
-    path: "/employee/details",
+    path: "/employee/promote/:empid",
+    element: <EmpPromote />,
+  },
+  {
+    path: "/employee/details/:empid",
     element: <EmpDetails />,
   },
 ]);

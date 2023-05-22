@@ -1,7 +1,33 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-function EmpCreate() {
+function EmpPromote() {
+  const { empid } = useParams();
+
+  // const [empdata, setEmpdata] = useState({});
+
+  useEffect(() => {
+    fetch("http://localhost:8000/employeeSdOne/" + empid)
+      .then((res) => {
+        return res.json();
+      })
+      .then((resp) => {
+        setId(resp.id);
+        setName(resp.name);
+        setPosition(resp.position);
+        setSalary(resp.salary);
+        setEmail(resp.email);
+        setHire(resp.hire);
+        setPhone(resp.phone);
+        setBirthday(resp.birthday);
+        setManager(resp.manager);
+        setHike(resp.hike);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
@@ -28,8 +54,8 @@ function EmpCreate() {
       manager,
       hike,
     };
-    fetch("http://localhost:8000/employeeSdOne", {
-      method: "POST",
+    fetch("http://localhost:8000/employeeSdOne/" + empid, {
+      method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(empdata),
     })
@@ -41,6 +67,7 @@ function EmpCreate() {
         console.log(err.message);
       });
   };
+
   return (
     <div className="my-3">
       <div className="row">
@@ -48,7 +75,7 @@ function EmpCreate() {
           <form className="container" onSubmit={handleSubmit}>
             <div className="card">
               <div className="card-title">
-                <h2 style={{ textAlign: "center" }}>Employee Create</h2>
+                <h2 style={{ textAlign: "center" }}>Promote</h2>
               </div>
               <div className="card-body">
                 <div className="row">
@@ -56,6 +83,7 @@ function EmpCreate() {
                     <div className="form-group">
                       <label>ID</label>
                       <input
+                        disabled
                         required
                         value={id}
                         onChange={(e) => setId(e.target.value)}
@@ -67,6 +95,7 @@ function EmpCreate() {
                     <div className="form-group">
                       <label>Name</label>
                       <input
+                        disabled
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -100,6 +129,7 @@ function EmpCreate() {
                     <div className="form-group">
                       <label>Email</label>
                       <input
+                        disabled
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -111,6 +141,7 @@ function EmpCreate() {
                     <div className="form-group">
                       <label>Hire Date</label>
                       <input
+                        disabled
                         required
                         value={hire}
                         onChange={(e) => setHire(e.target.value)}
@@ -122,6 +153,7 @@ function EmpCreate() {
                     <div className="form-group">
                       <label>Phone</label>
                       <input
+                        disabled
                         required
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
@@ -133,6 +165,7 @@ function EmpCreate() {
                     <div className="form-group">
                       <label>Birthday</label>
                       <input
+                        disabled
                         required
                         value={birthday}
                         onChange={(e) => setBirthday(e.target.value)}
@@ -182,4 +215,4 @@ function EmpCreate() {
   );
 }
 
-export default EmpCreate;
+export default EmpPromote;

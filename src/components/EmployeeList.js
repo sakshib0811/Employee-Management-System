@@ -22,16 +22,56 @@ function EmployeeList() {
         EMPLOYEE HIERARCHY
       </h3>
       <div className="employee-list">
-        <Card rank={"SDE1"} list={"Get Employee Details"} path={"/SD1"} />
-        <Card rank={"SDE2"} list={"Get Employee Details"} />
-        <Card rank={"SDE3"} list={"Get Employee Details"} />
-        <Card rank={"SDE4"} list={"Get Employee Details"} />
+        <Card
+          rank={"SDE1"}
+          list={"Get Employee Details"}
+          role={"Software Developer 1"}
+          head={"Employee Listing"}
+        />
+        <Card
+          rank={"SDE2"}
+          list={"Get Employee Details"}
+          role={"Software Developer 2"}
+          head={"Employee Listing"}
+        />
+        <Card
+          rank={"SDE3"}
+          list={"Get Employee Details"}
+          role={"Software Developer 3"}
+          head={"Employee Listing"}
+        />
+        <Card
+          rank={"SDE4"}
+          list={"Get Employee Details"}
+          role={"Software Developer 4"}
+          head={"Employee Listing"}
+        />
       </div>
       <div className="employee-list">
-        <Card rank={"TA1"} list={"Get Employee Details"} />
-        <Card rank={"TA2"} list={"Get Employee Details"} />
-        <Card rank={"TA3"} list={"Get Employee Details"} />
-        <Card rank={"TA4"} list={"Get Employee Details"} />
+        <Card
+          rank={"TA1"}
+          list={"Get Employee Details"}
+          role={"Data Analyst 1"}
+          head={"Employee Listing"}
+        />
+        <Card
+          rank={"TA2"}
+          list={"Get Employee Details"}
+          role={"Data Analyst 2"}
+          head={"Employee Listing"}
+        />
+        <Card
+          rank={"TA3"}
+          list={"Get Employee Details"}
+          role={"Data Analyst 3"}
+          head={"Employee Listing"}
+        />
+        <Card
+          rank={"TA4"}
+          list={"Get Employee Details"}
+          role={"Data Analyst 4"}
+          head={"Employee Listing"}
+        />
       </div>
 
       <div className="logout-btn mt-4">

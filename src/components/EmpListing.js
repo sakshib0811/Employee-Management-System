@@ -1,30 +1,66 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./EmpListing.css";
 function EmpListing() {
+  const location = useLocation();
+  const { from, foo } = location.state;
   const [empdata, setEmpdata] = useState(null);
+  const navigate = useNavigate();
+
+  const LoadDetail = (id) => {
+    navigate("/employee/details/" + id);
+  };
+  const LoadEdit = (id) => {
+    navigate("/employee/edit/" + id);
+  };
+  const LoadPromote = (id) => {
+    navigate("/employee/promote/" + id);
+  };
+
+  const Removefunction = (id) => {
+    if (window.confirm("Do you want to remove?")) {
+      fetch("http://localhost:8000/employeeSdOne/" + id, {
+        method: "DELETE",
+      })
+        .then((res) => {
+          alert("Removed Successfully");
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
+  };
   useEffect(() => {
     fetch("http://localhost:8000/employeeSdOne")
       .then((res) => {
         return res.json();
       })
       .then((resp) => {
-        setEmpdata(resp);
+        const result = resp.filter((resp) => {
+          return resp.position === from;
+        });
+        setEmpdata(result);
+        console.log(result);
       })
       .catch((err) => {
         console.log(err.message);
       });
   }, []);
+
   return (
     <div className="mx-3 mt-3 container-card">
       <div className="card-box">
         <div className="card-title">
-          <h1>EMPLOYEE LISTING</h1>
+          <h1> {foo} </h1>
         </div>
         <div className="card-body">
           <div className="divbtn">
             <Link to="/employee/create" className="btn btn-success">
               Add New
+            </Link>
+            <Link to="/details" className="btn btn-danger">
+              Back
             </Link>
           </div>
           <table className="table table-bordered">
@@ -59,14 +95,37 @@ function EmpListing() {
                     <td>{item.hike}</td>
                     <td>
                       {" "}
-                      <a href="" className="btn btn-success">
+                      <a
+                        onClick={() => {
+                          LoadEdit(item.id);
+                        }}
+                        className="btn btn-success"
+                      >
                         Edit
                       </a>
-                      <a href="" className="btn btn-danger">
+                      <a
+                        onClick={() => {
+                          Removefunction(item.id);
+                        }}
+                        className="btn btn-danger"
+                      >
                         Remove
                       </a>
-                      <a href="" className="btn btn-primary">
+                      <a
+                        onClick={() => {
+                          LoadDetail(item.id);
+                        }}
+                        className="btn btn-primary"
+                      >
                         Details
+                      </a>
+                      <a
+                        onClick={() => {
+                          LoadPromote(item.id);
+                        }}
+                        className="btn btn-success"
+                      >
+                        Promote
                       </a>
                     </td>
                   </tr>

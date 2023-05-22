@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Card.css";
-import { useNavigate } from "react-router-dom";
-const Card = ({ rank, list, path }) => {
+import { Link, useNavigate } from "react-router-dom";
+import EmpListing from "./EmpListing";
+const Card = ({ rank, list, role, head }) => {
+  console.log(head);
   const Navigate = useNavigate();
+  let pos = role;
+  let title = head;
   const handleClick = () => {
-    Navigate(path, { replace: true });
+    Navigate("/EmpListing", { replace: true });
   };
   return (
     <div className="container-card">
       <span className="rank-title">{rank}</span>
-      <button type="button" class="btn btn-success" onClick={handleClick}>
-        {list}
-      </button>
+      <Link to="/EmpListing" state={{ from: pos, foo: title }}>
+        <button type="button" class="btn btn-success">
+          {list}
+        </button>
+      </Link>
     </div>
   );
 };

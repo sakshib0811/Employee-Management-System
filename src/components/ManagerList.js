@@ -21,10 +21,30 @@ function ManagerList() {
         MANAGER HIERARCHY
       </h3>
       <div className="employee-list">
-        <Card rank={"Manager1"} list={"Get Manager Details"} />
-        <Card rank={"Manager2"} list={"Get Manager Details"} />
-        <Card rank={"Manager3"} list={"Get Manager Details"} />
-        <Card rank={"Manager4"} list={"Get Manager Details"} />
+        <Card
+          rank={"Manager1"}
+          list={"Get Manager Details"}
+          role={"Manager 1"}
+          head={"Manager Listing"}
+        />
+        <Card
+          rank={"Manager2"}
+          list={"Get Manager Details"}
+          role={"Manager 2"}
+          head={"Manager Listing"}
+        />
+        <Card
+          rank={"Manager3"}
+          list={"Get Manager Details"}
+          role={"Manager 3"}
+          head={"Manager Listing"}
+        />
+        <Card
+          rank={"Manager4"}
+          list={"Get Manager Details"}
+          role={"Manager 4"}
+          head={"Manager Listing"}
+        />
       </div>
       <div className="logout-btn mt-4">
         <Logout />
